@@ -37,16 +37,16 @@ function AuthPage() {
     try {
       if (mode === "signup") {
         const p = signupSchema.safeParse(fd);
-        if (!p.success) return toast.error(p.error.issues[0].message);
+        if (!p.success) { toast.error(p.error.issues[0]?.message ?? "Invalid input"); return; }
         const { error } = await supabase.auth.signUp({
           email: p.data.email, password: p.data.password,
           options: { emailRedirectTo: window.location.origin, data: { full_name: p.data.full_name, account_type: role } },
         });
-        if (error) return toast.error(error.message);
+        if (error) { toast.error(error.message); return; }
         setSent(p.data.email);
       } else {
-        const { error } = await supabase.auth.signInWithPassword({ email: fd.email, password: fd.password });
-        if (error) return toast.error(error.message);
+        const { error } = await supabase.auth.signInWithPassword({ email: fd["email"] ?? "", password: fd["password"] ?? "" });
+        if (error) { toast.error(error.message); return; }
         toast.success("Welcome back");
         navigate({ to: "/account" });
       }
@@ -81,7 +81,7 @@ function AuthPage() {
             <div className="space-y-2">
               <Label>I want to</Label>
               <RadioGroup value={role} onValueChange={setRole} className="grid grid-cols-3 gap-2">
-                {[["buyer", "Buy"], ["seller", "Sell"], ["both", "Both"]].map(([v, l]) => (
+                {([["buyer", "Buy"], ["seller", "Sell"], ["both", "Both"]] as const).map(([v, l]) => (
                   <Label key={v} htmlFor={`r-${v}`} className="flex cursor-pointer items-center gap-2 rounded-lg border p-3 has-[:checked]:border-primary has-[:checked]:bg-accent">
                     <RadioGroupItem id={`r-${v}`} value={v} /> {l}
                   </Label>

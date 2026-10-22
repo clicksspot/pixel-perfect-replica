@@ -16,9 +16,9 @@ function Reset() {
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const password = new FormData(e.currentTarget).get("password") as string;
-    if (password.length < 8) return toast.error("At least 8 characters");
+    if (password.length < 8) { toast.error("At least 8 characters"); return; }
     const { error } = await supabase.auth.updateUser({ password });
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Password updated");
     navigate({ to: "/account" });
   };
