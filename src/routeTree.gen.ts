@@ -10,7 +10,15 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as BrowseRouteImport } from './routes/browse'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FeesRouteImport } from './routes/fees'
+import { Route as HowEscrowWorksRouteImport } from './routes/how-escrow-works'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ProhibitedItemsRouteImport } from './routes/prohibited-items'
+import { Route as RefundPolicyRouteImport } from './routes/refund-policy'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ListingsSlugRouteImport } from './routes/listings.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -18,9 +26,49 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BrowseRoute = BrowseRouteImport.update({
   id: '/browse',
   path: '/browse',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FeesRoute = FeesRouteImport.update({
+  id: '/fees',
+  path: '/fees',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowEscrowWorksRoute = HowEscrowWorksRouteImport.update({
+  id: '/how-escrow-works',
+  path: '/how-escrow-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProhibitedItemsRoute = ProhibitedItemsRouteImport.update({
+  id: '/prohibited-items',
+  path: '/prohibited-items',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundPolicyRoute = RefundPolicyRouteImport.update({
+  id: '/refund-policy',
+  path: '/refund-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ListingsSlugRoute = ListingsSlugRouteImport.update({
@@ -31,31 +79,97 @@ const ListingsSlugRoute = ListingsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/browse': typeof BrowseRoute
+  '/contact': typeof ContactRoute
+  '/fees': typeof FeesRoute
+  '/how-escrow-works': typeof HowEscrowWorksRoute
+  '/privacy': typeof PrivacyRoute
+  '/prohibited-items': typeof ProhibitedItemsRoute
+  '/refund-policy': typeof RefundPolicyRoute
+  '/terms': typeof TermsRoute
   '/listings/$slug': typeof ListingsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/browse': typeof BrowseRoute
+  '/contact': typeof ContactRoute
+  '/fees': typeof FeesRoute
+  '/how-escrow-works': typeof HowEscrowWorksRoute
+  '/privacy': typeof PrivacyRoute
+  '/prohibited-items': typeof ProhibitedItemsRoute
+  '/refund-policy': typeof RefundPolicyRoute
+  '/terms': typeof TermsRoute
   '/listings/$slug': typeof ListingsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/browse': typeof BrowseRoute
+  '/contact': typeof ContactRoute
+  '/fees': typeof FeesRoute
+  '/how-escrow-works': typeof HowEscrowWorksRoute
+  '/privacy': typeof PrivacyRoute
+  '/prohibited-items': typeof ProhibitedItemsRoute
+  '/refund-policy': typeof RefundPolicyRoute
+  '/terms': typeof TermsRoute
   '/listings/$slug': typeof ListingsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/browse' | '/listings/$slug'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/browse'
+    | '/contact'
+    | '/fees'
+    | '/how-escrow-works'
+    | '/privacy'
+    | '/prohibited-items'
+    | '/refund-policy'
+    | '/terms'
+    | '/listings/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/browse' | '/listings/$slug'
-  id: '__root__' | '/' | '/browse' | '/listings/$slug'
+  to:
+    | '/'
+    | '/about'
+    | '/browse'
+    | '/contact'
+    | '/fees'
+    | '/how-escrow-works'
+    | '/privacy'
+    | '/prohibited-items'
+    | '/refund-policy'
+    | '/terms'
+    | '/listings/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/browse'
+    | '/contact'
+    | '/fees'
+    | '/how-escrow-works'
+    | '/privacy'
+    | '/prohibited-items'
+    | '/refund-policy'
+    | '/terms'
+    | '/listings/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   BrowseRoute: typeof BrowseRoute
+  ContactRoute: typeof ContactRoute
+  FeesRoute: typeof FeesRoute
+  HowEscrowWorksRoute: typeof HowEscrowWorksRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ProhibitedItemsRoute: typeof ProhibitedItemsRoute
+  RefundPolicyRoute: typeof RefundPolicyRoute
+  TermsRoute: typeof TermsRoute
   ListingsSlugRoute: typeof ListingsSlugRoute
 }
 
@@ -68,11 +182,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/browse': {
       id: '/browse'
       path: '/browse'
       fullPath: '/browse'
       preLoaderRoute: typeof BrowseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fees': {
+      id: '/fees'
+      path: '/fees'
+      fullPath: '/fees'
+      preLoaderRoute: typeof FeesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-escrow-works': {
+      id: '/how-escrow-works'
+      path: '/how-escrow-works'
+      fullPath: '/how-escrow-works'
+      preLoaderRoute: typeof HowEscrowWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prohibited-items': {
+      id: '/prohibited-items'
+      path: '/prohibited-items'
+      fullPath: '/prohibited-items'
+      preLoaderRoute: typeof ProhibitedItemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund-policy': {
+      id: '/refund-policy'
+      path: '/refund-policy'
+      fullPath: '/refund-policy'
+      preLoaderRoute: typeof RefundPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/listings/$slug': {
@@ -87,7 +257,15 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   BrowseRoute: BrowseRoute,
+  ContactRoute: ContactRoute,
+  FeesRoute: FeesRoute,
+  HowEscrowWorksRoute: HowEscrowWorksRoute,
+  PrivacyRoute: PrivacyRoute,
+  ProhibitedItemsRoute: ProhibitedItemsRoute,
+  RefundPolicyRoute: RefundPolicyRoute,
+  TermsRoute: TermsRoute,
   ListingsSlugRoute: ListingsSlugRoute,
 }
 export const routeTree = rootRouteImport
