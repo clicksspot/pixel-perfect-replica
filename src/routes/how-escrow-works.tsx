@@ -15,7 +15,7 @@ function HowEscrowWorksPage() {
     { heading: "4. Seller transfers", body: <p>{"The seller delivers the domain, credentials, files and instructions through a secure delivery form."}</p> },
     { heading: "5. Buyer review", body: <p>{"The buyer inspects everything and approves or rejects with evidence. With no response, the deal auto-approves after the review window (5 days by default)."}</p> },
     { heading: "6. Payout", body: <p>{"We keep the platform fee (10%) and send the remaining 90% to the seller, recording the payout transaction. The deal completes and both sides leave reviews."}</p> },
-    { heading: "If something goes wrong", body: <p>{"A rejection opens a dispute. Our team reviews both sides" evidence and decides to release to the seller, refund the buyer, or split. Every decision is logged."}</p> }
+    { heading: "If something goes wrong", body: <p>{"A rejection opens a dispute. Our team reviews both sides' evidence and decides to release to the seller, refund the buyer, or split. Every decision is logged."}</p> }
     ]} />
   );
 }
