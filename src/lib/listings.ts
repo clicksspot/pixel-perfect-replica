@@ -60,19 +60,22 @@ export const featuredQuery = () =>
   });
 
 export type BrowseFilters = {
-  q?: string;
-  category?: string;
-  minPrice?: number;
-  maxPrice?: number;
-  minRevenue?: number;
-  minProfit?: number;
-  minTraffic?: number;
-  minAge?: number;
-  monetization?: string;
-  tech?: string;
-  country?: string;
-  sort?: "newest" | "price_asc" | "price_desc" | "revenue" | "profit";
-  page?: number;
+  [K in keyof BrowseFiltersBase]?: BrowseFiltersBase[K] | undefined;
+};
+type BrowseFiltersBase = {
+  q: string;
+  category: string;
+  minPrice: number;
+  maxPrice: number;
+  minRevenue: number;
+  minProfit: number;
+  minTraffic: number;
+  minAge: number;
+  monetization: string;
+  tech: string;
+  country: string;
+  sort: "newest" | "price_asc" | "price_desc" | "revenue" | "profit";
+  page: number;
 };
 
 export const PAGE_SIZE = 9;

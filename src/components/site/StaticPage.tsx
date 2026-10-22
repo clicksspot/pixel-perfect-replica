@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-export function PageHero({ eyebrow, title, intro }: { eyebrow?: string; title: string; intro?: string }) {
+export function PageHero({ eyebrow, title, intro }: { eyebrow?: string | undefined; title: string; intro?: string | undefined }) {
   return (
     <section className="bg-hero text-forest-foreground">
       <div className="container-page py-16 md:py-20">
@@ -13,7 +13,7 @@ export function PageHero({ eyebrow, title, intro }: { eyebrow?: string; title: s
 }
 
 export function StaticPage({ eyebrow, title, intro, sections }: {
-  eyebrow?: string; title: string; intro?: string;
+  eyebrow?: string | undefined; title: string; intro?: string | undefined;
   sections: { heading: string; body: ReactNode }[];
 }) {
   return (
